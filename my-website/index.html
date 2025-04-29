@@ -3,21 +3,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Website</title>
-  <link rel="stylesheet" href="css/home.css">
+
+  <!-- External Styles and Scripts -->
+  <link rel="stylesheet" href="css/home.css"/>
   <link rel="preload" href="css/home.css" as="style">
   <link rel="preload" href="js/home.js" as="script">
   <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
   <script defer src="js/home.js"></script>
+
+  <style>
+    .search-bar {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 2px solid transparent;
+      background: #222;
+      color: #fff;
+      font-size: 16px;
+      transition: box-shadow 0.3s ease, border 0.3s ease;
+    }
+    .search-bar:hover {
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+    }
+    .search-bar:focus {
+      outline: none;
+      border: 2px solid #00ffff;
+      box-shadow: 0 0 12px rgba(255, 0, 0, 1);
+      background: #333;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .info-modal {
+      animation: fadeIn 1s ease-in forwards;
+    }
+  </style>
 </head>
 
 <body>
   <div class="navbar">
-    <img src="logo.png" alt="LOGO HERE" />
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
-    </div>
+    <div class="logo">Streamii</div>
+    <div class="hamburger" id="hamburger-icon">&#9776;</div>
+    <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
   </div>
 
   <div class="banner" id="banner">
@@ -43,14 +74,13 @@
     <div class="modal-content">
       <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
       <div class="modal-body">
-  <img id="modal-image" src="" alt="" />
-  <div class="modal-text">
-    <h2 id="modal-title"></h2>
-    <div class="stars" id="modal-rating"></div>
-    <p id="modal-description"></p>
-  </div>
-</div>
-      
+        <img id="modal-image" src="" alt="" />
+        <div class="modal-text">
+          <h2 id="modal-title"></h2>
+          <div class="stars" id="modal-rating"></div>
+          <p id="modal-description"></p>
+        </div>
+      </div>
       <div class="server-selector">
         <label for="server">Change Server:</label>
         <select id="server" onchange="changeServer()">
@@ -69,16 +99,21 @@
     <div class="results" id="search-results"></div>
   </div>
 
-<footer class="footer">
-  <div class="footer-content">
-    <p>&copy; 2025 My Website. All rights reserved.</p>
-    <div class="footer-links">
-      <a href="#">Disclaimer</a>
-      <a href="#">About Us</a>
-      <a href="#">Contact Us</a>
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 StreamLy. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#" onclick="openInfoModal()">Disclaimer</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="info-modal" id="info-modal">
+    <div class="info-modal-content">
+      <h2>Disclaimer</h2>
+      <p>This website's server has no files on it. Only content from third-party websites and services is displayed. We have no control over or endorsement of these websites.</p>
+      <button id="home-button" onclick="goHome()">HOME</button>
     </div>
   </div>
-</footer>
-
-  
 </body>
+</html>
