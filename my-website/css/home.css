@@ -6,53 +6,185 @@
       padding: 10px; background: #222;
     }
 
-    .navbar img { height: 40px; }
-    .nav-links { display: flex; align-items: center; gap: 10px; }
+    .navbar img { height: 50px; }
+    .logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: red;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+}
+
+
+    .nav-links { display: flex; align-items: center;  gap: 20px;
+  transition: max-height 0.3s ease-out; }
     .nav-links a { color: white; text-decoration: none; margin: 0 5px; }
 
     .search-bar {
       padding: 5px; border-radius: 5px; border: none;
     }
 
-    .banner {
-      height: 50vh;
-      background-size: cover;
-      display: flex;
-      align-items: center;
-      padding: 20px;
-    }
+    /* Banner Styling */
+/* Banner Styling */
+.banner {
+  height: 90vh; /* 90% of viewport height */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 20px;
+  transition: all 0.3s ease; /* Smooth transition when resizing */
+}
 
-    .banner h1 {
-      background: rgba(0,0,0,0.7);
-      padding: 10px;
-    }
+/* Gradient Overlay */
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
+  z-index: 1; /* Ensure this stays below content but above the background */
+}
+/* Title Styling */
+.banner h1 {
+  position: relative;
+  background for text */
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 50px;
+  text-align: left;
+  z-index: 2;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  width: 100%; /* Ensure the text doesn’t overflow */
+  box-sizing: border-box; /* Include padding in width calculation */
+  font-weight: bold;
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+  .banner h1 {
+    font-size: 28px; /* Smaller font size on tablets and small screens */
+    padding: 8px 15px; /* Adjust padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+    height: 70vh; /* Reduce the banner height on very small screens */
+    padding: 15px; /* Adjust padding for small screens */
+  }
+
+  .banner h1 {
+    font-size: 22px; /* Even smaller font size on mobile devices */
+    padding: 5px 10px;
+  }
+}
+
+}
+
 
     .row {
-      margin: 20px;
-    }
+  margin: 20px;
+}
 
-    .row h2 {
-      margin-bottom: 10px;
-    }
+.row h2 {
+  margin-bottom: 10px;
+  font-size: 24px; /* Adjust for readability */
+  font-weight: bold; /* Bold heading for emphasis */
+}
 
-    .list {
-      display: flex;
-      overflow-x: auto;
-    }
+.list {
+  display: flex;
+  overflow-x: auto; /* Horizontal scrolling if necessary */
+  gap: 20px; /* Space between list items */
+  padding-bottom: 10px; /* Space at the bottom to prevent scroll bar overlapping */
+}
 
-    .list img {
-      width: 150px;
-      margin-right: 10px;
-      cursor: pointer;
-      border-radius: 5px;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
+.list::-webkit-scrollbar {
+  height: 8px; /* Customize scrollbar height */
+}
 
-    .list img:hover {
-      transform: scale(1.05);
-      filter: brightness(1.2);
-      z-index: 2;
-    }
+.list::-webkit-scrollbar-thumb {
+  background-color: #888; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Darker scrollbar on hover */
+}
+
+.list img {
+  width: 150px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.list img:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+   @keyframes redGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+  }
+}
+
+.list img {
+  width: 150px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.list img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  animation: redGlow 1.2s infinite ease-in-out;
+}
+
+/* Add red glow to buttons */
+.button {
+  padding: 10px 20px;
+  background-color: #333;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  animation: redGlow 1.2s infinite ease-in-out;  /* Apply the red glow animation */
+  background-color: #444; /* Slight change in background on hover */
+}
+
+/* Add red glow to modals */
+.modal {
+  display: none; /* Hidden by default */
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.modal.show {
+  display: block; /* Display modal */
+  animation: redGlow 1.2s infinite ease-in-out;  /* Apply the red glow animation */
+}
+
 
     .modal {
       position: fixed;
@@ -123,6 +255,7 @@
       align-items: center;
       flex-direction: column;
       z-index: 15;
+      
     }
 
     .search-modal input {
@@ -133,25 +266,85 @@
       margin-bottom: 20px;
     }
 
-    .search-modal .results {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
+    .search-modal .results .result-item {
+  width: 200px; /* or a percentage for responsiveness */
+  height: auto;
+  background-color: #333; /* Adjust background color */
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-modal .results .result-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.search-modal .result-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.search-modal img {
+  width: 120px;
+  border-radius: 5px;
+  cursor: pointer;
+  object-fit: cover;
+}
 
     .search-modal img {
-      width: 120px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+  width: 120px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
 
-    .search-modal .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 30px;
-    }
+.search-modal img:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Enhance shadow on hover */
+}
+
+.search-modal img:hover {
+  transform: scale(1.05); /* Slightly zoom in the image */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+}
+
+.search-modal .loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+}
+
+   .search-modal .close {
+  position: absolute; /* or fixed if you prefer */
+  bottom: 20px; /* If you want it at the bottom */
+  right: 30px;
+  width: 50px; /* Set width */
+  height: 50px; /* Set height to match width */
+  font-size: 24px; /* Smaller font inside */
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark transparent background */
+  padding: 0; /* Remove padding, not needed for a perfect circle */
+  border-radius: 50%; /* Makes it a circle */
+  display: flex; /* Center the "X" */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.search-modal .close:hover {
+  background-color: #f39c12; /* Change background on hover */
+  transform: scale(1.1); /* Slight zoom effect */
+}
+
+
 
 /* MOBILE DISPLAY START */
 @media (max-width: 768px) {
@@ -284,3 +477,293 @@
     gap: 8px;
   }
 }
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: red;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+/* Soft background and center modal */
+.info-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  backdrop-filter: blur(8px); /* Blur the background behind the modal */
+  -webkit-backdrop-filter: blur(8px); /* For Safari support */
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 1s ease-in forwards; /* Fade-in animation */
+}
+
+/* Disclaimer modal content box */
+.info-modal-content {
+  background: rgba(34, 34, 34, 0.8); /* Dark semi-transparent box */
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in forwards; /* Fade-in for content too */
+}
+
+/* HOME button */
+#home-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: red;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#home-button:hover {
+  background-color: darkred;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* Modal content centered with styling */
+.info-modal-content {
+  background-color: #111;
+  color: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+/* HOME button styled to match the red theme */
+#home-button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: red;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#home-button:hover {
+  background-color: darkred;
+}
+
+
+/* Disclaimer text */
+.info-modal-content p {
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Animation for the background */
+@keyframes fadeIn {
+  from { background: rgba(0, 0, 0, 0); }
+  to { background: rgba(0, 0, 0, 0.7); }
+}
+
+/* Animation for the modal box pop-up */
+@keyframes popUp {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/* Animation for the background */
+@keyframes fadeIn {
+  from { background: rgba(0, 0, 0, 0); }
+  to { background: rgba(0, 0, 0, 0.7); }
+}
+
+/* Animation for the modal box pop-up */
+@keyframes popUp {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.search-bar {
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #555;
+  background-color: #1c1c1c;
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  width: 250px;
+}
+
+.search-bar::placeholder {
+  color: #aaa;
+}
+
+.search-bar:focus {
+  border-color: #f00; /* Red border when focused */
+  background-color: #2a2a2a;
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+}
+
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 5px;
+  padding: 8px 15px;
+  background: #e50914; /* Netflix Red */
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.nav-links a:hover {
+  background: #b00610; /* Darker red on hover */
+  color: white;
+   display: flex;             /* Flex container for links and search */
+  align-items: center;       /* Center items vertically */
+  gap: 20px; 
+}
+
+.navbar {
+  display: flex;            /* Flex container */
+  align-items: center;       /* Center items vertically */
+  justify-content: space-between;  /* Push logo to the left, links/search to the right */
+  padding: 15px 30px;        /* Space around inside the navbar */
+  background: rgba(17, 17, 17, 0.8); /* Dark semi-transparent background */
+  backdrop-filter: blur(8px); /* Blurry background effect */
+  position: fixed;           /* Stay at the top */
+  width: 100%;
+  z-index: 1000;             /* Always stay above other elements */
+}
+
+
+@keyframes navbarFade {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+ /* Search Bar Styling */
+.search-bar {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background: #222;
+  color: #fff;
+  font-size: 16px;
+  transition: box-shadow 0.3s ease, border 0.3s ease, background 0.3s ease;
+}
+
+/* Glowing effect when hovering */
+.search-bar:hover {
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+/* Glowing effect when focused (user clicks or taps) */
+.search-bar:focus {
+  outline: none;
+  border: 2px solid #00ffff;  /* Cyan border */
+  box-shadow: 0 0 12px rgba(0, 255, 255, 1);  /* Stronger glow */
+  background: #333;  /* Slight background change when focused */
+}
+
+  
+  /* Hamburger Menu */
+.hamburger {
+  display: none;  /* Initially hidden on desktop */
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;  /* Show hamburger icon on mobile */
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column; /* Stack links vertically */
+    gap: 10px;
+    background: rgba(17, 17, 17, 0.9);  /* Darker background */
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    max-height: 0;  /* Initially hidden */
+    overflow: hidden;  /* Hide the links */
+  }
+
+  .nav-links.open {
+    max-height: 300px;  /* Show links when menu is open */
+  }
+
+  .nav-links a {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    text-decoration: none;
+    
+  }
+  
+  img.lazy-img {
+  filter: blur(10px);
+  transition: filter 0.5s ease;
+}
+
+img.lazy-img.loaded {
+  filter: blur(0);
+}
+
+ .page-container {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #111; /* Dark background */
+  border: 2px solid #444; /* Subtle border color */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Optional shadow */
+  overflow: hidden;
+}
+  
+}
+  
+  
+
+
