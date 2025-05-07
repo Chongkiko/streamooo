@@ -1,127 +1,131 @@
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>STREAMii</title>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>STREAMii</title>
+  
+    <!-- External Styles and Scripts -->
+    <link rel="stylesheet" href="css/home.css"/>
+    <link rel="preload" href="css/home.css" as="style">
+    <link rel="preload" href="js/home.js" as="script">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="js/home.js"></script>
+  
+    <style>
+      .search-bar {
+        padding: 8px 12px;
+        border-radius: 5px;
+        border: 2px solid transparent;
+        background: #222;
+        color: #fff;
+        font-size: 16px;
+        transition: box-shadow 0.3s ease, border 0.3s ease;
+      }
+      .search-bar:hover {
+        box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+      }
+      .search-bar:focus {
+        outline: none;
+        border: 2px solid #00ffff;
+        box-shadow: 0 0 12px rgba(255, 0, 0, 1);
+        background: #333;
+      }
+  
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+  
+      .info-modal {
+        animation: fadeIn 1s ease-in forwards;
+      }
 
-  <!-- External Styles and Scripts -->
-  <link rel="stylesheet" href="css/home.css"/>
-  <link rel="preload" href="css/home.css" as="style">
-  <link rel="preload" href="js/home.js" as="script">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script defer src="js/home.js"></script>
-
-  <style>
-    .search-bar {
-      padding: 8px 12px;
-      border-radius: 5px;
-      border: 2px solid transparent;
-      background: #222;
-      color: #fff;
-      font-size: 16px;
-      transition: box-shadow 0.3s ease, border 0.3s ease;
-    }
-    .search-bar:hover {
-      box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
-    }
-    .search-bar:focus {
-      outline: none;
-      border: 2px solid #00ffff;
-      box-shadow: 0 0 12px rgba(255, 0, 0, 1);
-      background: #333;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    .info-modal {
-      animation: fadeIn 1s ease-in forwards;
-    }
-
+    </style>
+  
     <script type="text/javascript" data-cfasync="false">
-/*<![CDATA[/* */
-(function(){var h=window,s="c78a61a27c5a217853151f496d4f7a07",c=[["siteId",935-524*785+380+5606177],["minBid",0.001],["popundersPerIP","0:6"],["delayBetween",300],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],e=["d3d3LmJsb2NrYWRzbm90LmNvbS9qcll2cS92cVVDbi9xanF1ZXJ5LmltZ2FyZWFzZWxlY3QubWluLmpz","ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9sYm9vdHN0cmFwLWNvbG9ycGlja2VyLm1pbi5qcw=="],k=-1,u,g,w=function(){clearTimeout(g);k++;if(e[k]&&!(1772579691000<(new Date).getTime()&&1<k)){u=h.document.createElement("script");u.type="text/javascript";u.async=!0;var o=h.document.getElementsByTagName("script")[0];u.src="https://"+atob(e[k]);u.crossOrigin="anonymous";u.onerror=w;u.onload=function(){clearTimeout(g);h[s.slice(0,16)+s.slice(0,16)]||w()};g=setTimeout(w,5E3);o.parentNode.insertBefore(u,o)}};if(!h[s]){try{Object.freeze(h[s]=c)}catch(e){}w()}})();
-/*]]>/* */
-</script>
-
-
-
-</head>
-
-<body>
-  <div class="navbar">
-    <div class="logo">Streamii</div>
-   
-    <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
-  </div>
-
-  <div class="banner" id="banner">
-    <h1 id="banner-title"></h1>
-  </div>
-
-  <div class="row">
-    <h2>Trending Movies</h2>
-    <div class="list" id="movies-list"></div>
-  </div>
-
-  <div class="row">
-    <h2>Trending TV Shows</h2>
-    <div class="list" id="tvshows-list"></div>
-  </div>
-
-  <div class="row">
-    <h2>Trending Anime</h2>
-    <div class="list" id="anime-list"></div>
-  </div>
-
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
-      <div class="modal-body">
-        <img id="modal-image" src="" alt="" />
-        <div class="modal-text">
-          <h2 id="modal-title"></h2>
-          <div class="stars" id="modal-rating"></div>
-          <p id="modal-description"></p>
+  /*<![CDATA[/* */
+  (function(){var h=window,s="c78a61a27c5a217853151f496d4f7a07",c=[["siteId",935-524*785+380+5606177],["minBid",0.001],["popundersPerIP","0:6"],["delayBetween",300],["default",false],["defaultPerDay",0],["topmostLayer","auto"]],e=["d3d3LmJsb2NrYWRzbm90LmNvbS9qcll2cS92cVVDbi9xanF1ZXJ5LmltZ2FyZWFzZWxlY3QubWluLmpz","ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9sYm9vdHN0cmFwLWNvbG9ycGlja2VyLm1pbi5qcw=="],k=-1,u,g,w=function(){clearTimeout(g);k++;if(e[k]&&!(1772579691000<(new Date).getTime()&&1<k)){u=h.document.createElement("script");u.type="text/javascript";u.async=!0;var o=h.document.getElementsByTagName("script")[0];u.src="https://"+atob(e[k]);u.crossOrigin="anonymous";u.onerror=w;u.onload=function(){clearTimeout(g);h[s.slice(0,16)+s.slice(0,16)]||w()};g=setTimeout(w,5E3);o.parentNode.insertBefore(u,o)}};if(!h[s]){try{Object.freeze(h[s]=c)}catch(e){}w()}})();
+  /*]]>/* */
+  </script>
+  
+  
+  
+  </head>
+  
+  <body>
+    <div class="navbar">
+      <div class="logo">Streamii</div>
+     
+      <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
+    </div>
+  
+    <div class="banner" id="banner">
+      <h1 id="banner-title"></h1>
+    </div>
+  
+    <div class="row">
+      <h2>Trending Movies</h2>
+      <div class="list" id="movies-list"></div>
+    </div>
+  
+    <div class="row">
+      <h2>Trending TV Shows</h2>
+      <div class="list" id="tvshows-list"></div>
+    </div>
+  
+    <div class="row">
+      <h2>Trending Anime</h2>
+      <div class="list" id="anime-list"></div>
+    </div>
+  
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
+        <div class="modal-body">
+          <img id="modal-image" src="" alt="" />
+          <div class="modal-text">
+            <h2 id="modal-title"></h2>
+            <div class="stars" id="modal-rating"></div>
+            <p id="modal-description"></p>
+          </div>
+        </div>
+        <div class="server-selector">
+          <label for="server">Change Server:</label>
+          <select id="server" onchange="changeServer()">
+            <option value="vidsrc.cc">Vidsrc.cc</option>
+            <option value="vidsrc.me">Vidsrc.me</option>
+            <option value="player.videasy.net">Player.Videasy.net</option>
+          </select>
+        </div>
+        <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  
+    <div class="search-modal" id="search-modal">
+      <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
+      <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
+      <div class="results" id="search-results"></div>
+    </div>
+  
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 StreamLy. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#" onclick="openInfoModal()">Disclaimer</a>
         </div>
       </div>
-      <div class="server-selector">
-        <label for="server">Change Server:</label>
-        <select id="server" onchange="changeServer()">
-          <option value="vidsrc.cc">Vidsrc.cc</option>
-          <option value="vidsrc.me">Vidsrc.me</option>
-          <option value="player.videasy.net">Player.Videasy.net</option>
-        </select>
-      </div>
-      <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </div>
-
-  <div class="search-modal" id="search-modal">
-    <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
-    <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
-    <div class="results" id="search-results"></div>
-  </div>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <p>&copy; 2025 StreamLy. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="#" onclick="openInfoModal()">Disclaimer</a>
+    </footer>
+  
+    <div class="info-modal" id="info-modal">
+      <div class="info-modal-content">
+        <h2>Disclaimer</h2>
+        <p>This website's server has no files on it. Only content from third-party websites and services is displayed. We have no control over or endorsement of these websites.</p>
+        <button id="home-button" onclick="goHome()">HOME</button>
       </div>
     </div>
-  </footer>
-
-  <div class="info-modal" id="info-modal">
-    <div class="info-modal-content">
-      <h2>Disclaimer</h2>
-      <p>This website's server has no files on it. Only content from third-party websites and services is displayed. We have no control over or endorsement of these websites.</p>
-      <button id="home-button" onclick="goHome()">HOME</button>
-    </div>
-  </div>
-</body>
-</html>
+  </body>
+  </html>
