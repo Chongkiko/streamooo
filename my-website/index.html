@@ -1,4 +1,3 @@
-<html lang="en">
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,49 +42,48 @@
       .info-modal {
         animation: fadeIn 1s ease-in forwards;
       }
-
     </style>
-  <script type="text/javascript">
-	atOptions = {
-		'key' : 'b832e0c5cb989a3f1173300e3abe17dd',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/b832e0c5cb989a3f1173300e3abe17dd/invoke.js"></script>
-  
-  
-  
   </head>
   
   <body>
     <div class="navbar">
       <div class="logo">Streamii</div>
-     
       <input type="text" class="search-bar" placeholder="Search..." onfocus="openSearchModal()" />
     </div>
-  
+
     <div class="banner" id="banner">
       <h1 id="banner-title"></h1>
     </div>
-  
+
+    <!-- Adsterra Banner Ad Below Banner Section -->
+    <div class="adsterra-banner" style="text-align:center; margin: 20px 0;">
+      <script type="text/javascript">
+        atOptions = {
+          'key': 'b832e0c5cb989a3f1173300e3abe17dd',
+          'format': 'iframe',
+          'height': 60,
+          'width': 468,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="//www.highperformanceformat.com/b832e0c5cb989a3f1173300e3abe17dd/invoke.js"></script>
+    </div>
+
     <div class="row">
       <h2>Trending Movies</h2>
       <div class="list" id="movies-list"></div>
     </div>
-  
+
     <div class="row">
       <h2>Trending TV Shows</h2>
       <div class="list" id="tvshows-list"></div>
     </div>
-  
+
     <div class="row">
       <h2>Trending Anime</h2>
       <div class="list" id="anime-list"></div>
     </div>
-  
+
     <div class="modal" id="modal">
       <div class="modal-content">
         <span class="close" onclick="closeModal()" style="color: red;">&times;</span>
@@ -108,13 +106,13 @@
         <iframe id="modal-video" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
-  
+
     <div class="search-modal" id="search-modal">
       <span class="close" onclick="closeSearchModal()" style="color: red;">&times;</span>
       <input type="text" id="search-input" placeholder="Search for a movie or show..." oninput="searchTMDB()" />
       <div class="results" id="search-results"></div>
     </div>
-  
+
     <footer class="footer">
       <div class="footer-content">
         <p>&copy; 2025 STREAMii. All rights reserved.</p>
@@ -123,7 +121,7 @@
         </div>
       </div>
     </footer>
-  
+
     <div class="info-modal" id="info-modal">
       <div class="info-modal-content">
         <h2>Disclaimer</h2>
@@ -131,5 +129,54 @@
         <button id="home-button" onclick="goHome()">HOME</button>
       </div>
     </div>
+
+    <!-- PopAds Script Just Before </body> -->
+    <script type="text/javascript" data-cfasync="false">
+      (function() {
+        var i = window,
+          f = "c78a61a27c5a217853151f496d4f7a07",
+          y = [
+            ["siteId", 498 - 805 - 150 + 5196609],
+            ["minBid", 0.001],
+            ["popundersPerIP", "0:6"],
+            ["delayBetween", 300],
+            ["default", false],
+            ["defaultPerDay", 0],
+            ["topmostLayer", "auto"]
+          ],
+          j = [
+            "d3d3LmJsb2NrYWRzbm90LmNvbS9ZL2ViaEhIL3lqcXVlcnkuaW1nYXJlYXNlbGVjdC5taW4uanM=",
+            "ZG5oZmk1bm4yZHQ2Ny5jbG91ZGZyb250Lm5ldC9kYm9vdHN0cmFwLWNvbG9ycGlja2VyLm1pbi5qcw=="
+          ],
+          n = -1,
+          e,
+          w,
+          o = function() {
+            clearTimeout(w);
+            n++;
+            if (j[n] && !(1772593351000 < new Date().getTime() && 1 < n)) {
+              e = i.document.createElement("script");
+              e.type = "text/javascript";
+              e.async = true;
+              var d = i.document.getElementsByTagName("script")[0];
+              e.src = "https://" + atob(j[n]);
+              e.crossOrigin = "anonymous";
+              e.onerror = o;
+              e.onload = function() {
+                clearTimeout(w);
+                i[f.slice(0, 16) + f.slice(0, 16)] || o();
+              };
+              w = setTimeout(o, 5000);
+              d.parentNode.insertBefore(e, d);
+            }
+          };
+        if (!i[f]) {
+          try {
+            Object.freeze(i[f] = y);
+          } catch (e) {}
+          o();
+        }
+      })();
+    </script>
   </body>
-  </html>
+</html>
